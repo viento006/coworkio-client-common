@@ -1,4 +1,4 @@
-import * as Actions  from '../actions/AuthActions';
+import * as Actions  from '../actions/auth.actions';
 
 const INITIAL_STATE = {
     isPending: false,
@@ -52,7 +52,6 @@ const auth = (state = INITIAL_STATE, action) => {
         default:
             return state;
     }
-
 };
 
 export default auth;

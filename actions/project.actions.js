@@ -6,7 +6,6 @@ export const FETCH_PROJECTS = 'FETCH_PROJECTS';
 export const CREATE_PROJECT = 'CREATE_PROJECT';
 export const FETCH_PROJECT = 'FETCH_PROJECT';
 
-
 export function fetchProject(id) {
     return {
         type: FETCH_PROJECT,

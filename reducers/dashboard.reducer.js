@@ -1,4 +1,5 @@
-import { FETCH_PROJECTS_BY_USER } from '../actions/DashboardActions';
+import { FETCH_PROJECTS_BY_USER } from '../actions/dashboard.actions';
+
 const INITIAL_STATE = {
     projectsList: {projects: [], error:null, loading: false}
 };

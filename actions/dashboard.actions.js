@@ -4,7 +4,6 @@ import WebAPI from '../utils/WebAPI';
 
 export const FETCH_PROJECTS_BY_USER = 'FETCH_PROJECTS_BY_USER';
 
-
 export function fetchProjectsByUser() {
     return {
         type: FETCH_PROJECTS_BY_USER,
