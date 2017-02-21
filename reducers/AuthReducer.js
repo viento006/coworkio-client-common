@@ -1,4 +1,4 @@
-import * as Actions  from './AuthActions';
+import * as Actions  from '../actions/AuthActions';
 
 const INITIAL_STATE = {
     isPending: false,

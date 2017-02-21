@@ -1,4 +1,4 @@
-import { FETCH_PROFILES, FETCH_PROFILE, CREATE_PROFILE } from './ProfileActions';
+import { FETCH_PROFILES, FETCH_PROFILE, CREATE_PROFILE } from '../actions/ProfileActions';
 const INITIAL_STATE = { 
     profilesList: {profiles: [], error:null, loading: false},  
     newProfile:{profileId:null, error: null, loading: false}, 

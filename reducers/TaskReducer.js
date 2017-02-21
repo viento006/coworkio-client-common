@@ -1,4 +1,4 @@
-import { FETCH_TASKS, FETCH_TASK, ADD_TASK } from './TaskActions';
+import { FETCH_TASKS, FETCH_TASK, ADD_TASK } from '../actions/TaskActions';
 
 const INITIAL_STATE = { 
     tasksList: {tasks: [], error:null, loading: false},  

@@ -1,4 +1,4 @@
-import { FETCH_PROJECTS, FETCH_PROJECT, CREATE_PROJECT } from './ProjectActions';
+import { FETCH_PROJECTS, FETCH_PROJECT, CREATE_PROJECT } from '../actions/ProjectActions';
 
 const INITIAL_STATE = { 
     projectsList: {projects: [], error:null, loading: false},  
