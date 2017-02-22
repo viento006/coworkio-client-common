@@ -1,5 +1,5 @@
 const SERVER_HOST = 'localhost:8080';
-const COWORKIO_HOST_URL = window.location.protocol + '//' + SERVER_HOST;
+const COWORKIO_HOST_URL = (window.location ? window.location.protocol : 'http:') + '//' + SERVER_HOST;
 
 const WebAPI = {
     ACCOUNT_LOGIN: COWORKIO_HOST_URL + '/auth/login',
