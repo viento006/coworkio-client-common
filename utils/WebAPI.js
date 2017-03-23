@@ -1,5 +1,6 @@
-const SERVER_HOST = 'localhost:8080';
-const COWORKIO_HOST_URL = window.location ? window.location.protocol  + '//' + SERVER_HOST : 'https://coworkio.herokuapp.com';
+const LOCAL_SERVER_HOST = 'localhost:8080';
+const TEST_SERVER_HOST = 'https://coworkio.herokuapp.com';
+const COWORKIO_HOST_URL = TEST_SERVER_HOST;
 
 const WebAPI = {
     ACCOUNT_LOGIN: COWORKIO_HOST_URL + '/auth/login',
