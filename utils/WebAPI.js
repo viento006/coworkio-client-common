@@ -1,19 +1,15 @@
-const LOCAL_SERVER_HOST = 'localhost:8080';
-const TEST_SERVER_HOST = 'https://coworkio.herokuapp.com';
-const COWORKIO_HOST_URL = TEST_SERVER_HOST;
-
 const WebAPI = {
-    ACCOUNT_LOGIN: COWORKIO_HOST_URL + '/auth/login',
-    ACCOUNT_REGISTER: COWORKIO_HOST_URL + '/auth/register',
-    ADD_TASK: COWORKIO_HOST_URL + '/task/add',
-    FETCH_TASK :  COWORKIO_HOST_URL + '/task/{taskID}',
-    FETCH_TASKS :  COWORKIO_HOST_URL + '/task/{projectID}/all',
-    FETCH_PROJECTS: COWORKIO_HOST_URL + '/project/all',
-    FETCH_PROJECT: COWORKIO_HOST_URL + '/project',
-    CREATE_PROJECT: COWORKIO_HOST_URL + '/project/create',
-    FETCH_PROJECTS_BY_USER: COWORKIO_HOST_URL + '/user/getProjects',
-    FETCH_USER_PROFILE: COWORKIO_HOST_URL + '/user/profile',
-    UPDATE_USER_PROFILE: COWORKIO_HOST_URL + '/user/update'
+    ACCOUNT_LOGIN:          '/api/auth/login',
+    ACCOUNT_REGISTER:       '/api/auth/register',
+    ADD_TASK:               '/api/task/add',
+    FETCH_TASK :            '/api/task/{taskID}',
+    FETCH_TASKS :           '/api/task/{projectID}/all',
+    FETCH_PROJECTS:         '/api/project/all',
+    FETCH_PROJECT:          '/api/project',
+    CREATE_PROJECT:         '/api/project/create',
+    FETCH_PROJECTS_BY_USER: '/api/user/getProjects',
+    FETCH_USER_PROFILE:     '/api/user/profile',
+    UPDATE_USER_PROFILE:    '/api/user/update'
 };
 
 export default WebAPI;
