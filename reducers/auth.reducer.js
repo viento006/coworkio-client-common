@@ -30,7 +30,7 @@ const auth = (state = INITIAL_STATE, action) => {
                 isPending: false,
                 token: null,
                 isSuccessful: false,
-                status: ''
+                status: 'error',
             });
 
         case `${Actions.REGISTER_USER}_PENDING` :
@@ -50,7 +50,7 @@ const auth = (state = INITIAL_STATE, action) => {
             return Object.assign({}, state, {
                 isPending: false,
                 isSuccessful: action.payload.message == true,
-                status: ''
+                status: 'error'
             });
         default:
             return state;
