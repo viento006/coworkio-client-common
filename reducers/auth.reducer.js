@@ -22,14 +22,14 @@ const auth = (state = INITIAL_STATE, action) => {
             return Object.assign({}, state, {
                 isPending: false,
                 token,
-                error: null,
+                isSucceeful: true,
                 status: "authenticated"
             });
         case `${Actions.LOGIN_USER}_REJECTED` :
             return Object.assign({}, state, {
                 isPending: false,
                 token: null,
-                error: null,
+                isSucceeful: false,
                 status: ''
             });
 
@@ -42,14 +42,14 @@ const auth = (state = INITIAL_STATE, action) => {
         case `${Actions.REGISTER_USER}_FULFILLED` :
             return Object.assign({}, state, {
                 isPending: false,
-                isSucceeded: action.payload.data == true,
+                isSucceeful: action.payload.data == true,
                 status: ''
             });
 
         case `${Actions.REGISTER_USER}_REJECTED` :
             return Object.assign({}, state, {
                 isPending: false,
-                isSucceeded: action.payload.message == true,
+                isSucceeful: action.payload.message == true,
                 status: ''
             });
         default:
