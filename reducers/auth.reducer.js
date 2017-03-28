@@ -19,8 +19,6 @@ const auth = (state = INITIAL_STATE, action) => {
         case `${Actions.LOGIN_USER}_FULFILLED`:
             let token = action.payload.data.token;
 
-            localStorage.setItem('token', token);
-
             return Object.assign({}, state, {
                 isPending: false,
                 token,
