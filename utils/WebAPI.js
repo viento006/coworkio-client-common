@@ -2,6 +2,7 @@ const WebAPI = {
     ACCOUNT_LOGIN:          '/api/auth/login',
     ACCOUNT_REGISTER:       '/api/auth/register',
     ADD_TASK:               '/api/task/add',
+    UPDATE_TASK:               '/api/task/update',
     FETCH_TASK :            '/api/task/{taskID}',
     FETCH_TASKS :           '/api/task/{projectID}/all',
     FETCH_PROJECTS:         '/api/project/all',
