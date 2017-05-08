@@ -1,15 +1,15 @@
-import { FETCH_PROFILES, FETCH_PROFILE, CREATE_PROFILE } from '../actions/profile.actions';
+import { FETCH_PROFILES, FETCH_PROFILE, UPSERT_PROFILE } from '../actions/profile.actions';
 
 const INITIAL_STATE = { 
     profilesList: {profiles: [], error:null, loading: false},  
     newProfile:{profileId:null, error: null, loading: false}, 
     activeProfile:{profile:null, error:null, loading: false}, 
-};
+}; 
 
 const profileReducer = (state = INITIAL_STATE, action) => {
     switch( action.type ){
         case FETCH_PROFILES:
-  	        return { ...state, profilesList: { profiles:[], error: null, loading: true } }; 
+  	        return { ...state, profilesList: { profiles:[], error: null, loading: true } };
         case `${FETCH_PROFILES}_FULFILLED`:
             return { ...state, profilesList: {profiles: action.payload.data, error:null, loading: false} };
         case `${FETCH_PROFILES}_FAILURE`:
@@ -24,11 +24,11 @@ const profileReducer = (state = INITIAL_STATE, action) => {
             error = action.payload.data || {message: action.payload.message};
             return { ...state, activeProfile: {profile: null, error:error, loading:false}};
 
-        case CREATE_PROFILE:
+        case UPSERT_PROFILE:
             return {...state, newProfile: {...state.newProfile, loading: true}}
-        case `${CREATE_PROFILE}_FULFILLED`:
+        case `${UPSERT_PROFILE}_FULFILLED`:
             return {...state, newProfile: {profileId:action.payload.data, error:null, loading: false}}
-        case `${CREATE_PROFILE}_FAILURE`:
+        case `${UPSERT_PROFILE}_FAILURE`:
             error = action.payload.data || {message: action.payload.message};
             return {...state, newProfile: {profileId:null, error:error, loading: false}}
 

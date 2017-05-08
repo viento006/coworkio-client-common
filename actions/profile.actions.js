@@ -3,9 +3,8 @@ import axios from 'axios';
 import WebAPI from '../utils/WebAPI';
 
 export const FETCH_PROFILES = 'FETCH_PROFILES';
-export const CREATE_PROFILE = 'CREATE_PROFILE';
+export const UPSERT_PROFILE = 'UPSERT_PROFILE';
 export const FETCH_PROFILE = 'FETCH_PROFILE';
-
 
 export function fetchProfile(id) {
     return {
@@ -21,16 +20,16 @@ export function fetchProfileSuccess(profile) {
     };
 }
 
-export function createProfile(props) {
+export function upsertProfile(props) {
     return {
-        type: CREATE_PROFILE,
-        payload: axios.post(WebAPI.UPDATE_USER_PROFILE, props)
+        type: UPSERT_PROFILE,
+        payload: axios.post(WebAPI.UPSERT_USER_PROFILE, props)
     };
 }
 
-export function createProfileSuccess(newProfile) {
+export function upsertProfileSuccess(newProfile) {
     return {
-        type: `${CREATE_PROFILE}_SUCCESS`,
+        type: `${UPSERT_PROFILE}_SUCCESS`,
         payload: newProfile
     };
 }

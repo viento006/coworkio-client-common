@@ -9,7 +9,7 @@ const WebAPI = {
     CREATE_PROJECT:         '/api/project/create',
     FETCH_PROJECTS_BY_USER: '/api/user/getProjects',
     FETCH_USER_PROFILE:     '/api/user/profile',
-    UPDATE_USER_PROFILE:    '/api/user/update'
-};
+    UPSERT_USER_PROFILE:    '/api/user/update'
+}; 
 
 export default WebAPI;
