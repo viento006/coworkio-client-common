@@ -6,6 +6,13 @@ export const FETCH_PROFILES = 'FETCH_PROFILES';
 export const UPSERT_PROFILE = 'UPSERT_PROFILE';
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 
+export function getUsersProfiles() {
+    return {
+        type: FETCH_PROFILES,
+        payload: axios.get(`${WebAPI.FETCH_PROFILES}`)
+    }
+}
+
 export function fetchProfile(id) {
     return {
         type: FETCH_PROFILE,

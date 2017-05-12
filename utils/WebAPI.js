@@ -10,6 +10,7 @@ const WebAPI = {
     CREATE_PROJECT:         '/api/project/create',
     FETCH_PROJECTS_BY_USER: '/api/user/getProjects',
     FETCH_USER_PROFILE:     '/api/user/profile',
+    FETCH_PROFILES:         '/api/user/all',
     UPSERT_USER_PROFILE:    '/api/user/update'
 }; 
 
