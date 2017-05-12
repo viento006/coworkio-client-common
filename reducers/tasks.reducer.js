@@ -27,7 +27,8 @@ const taskReducer = (state = INITIAL_STATE, action) => {
         case `${ADD_TASK}_PENDING`:
             return {...state, newTask: {...state.newTask, loading: true}}
         case `${ADD_TASK}_FULFILLED`:
-            return {...state, newTask: {task:action.payload.data, error:null, loading: false}}
+            return {...state, newTask: {task:action.payload.data, error:null, loading: false},
+                tasksList: {...state.tasksList, tasks: [...state.tasksList.tasks, action.payload.data]}}
         case `${ADD_TASK}_FAILURE`:
             error = action.payload.data || {message: action.payload.message};
             return {...state, newTask: {task:null, error:error, loading: false}}
@@ -35,7 +36,7 @@ const taskReducer = (state = INITIAL_STATE, action) => {
         case `${UPDATE_TASK}`:
             return {...state, updatedTask: {id: action.payload.id, loading: true}}
         case `${UPDATE_TASK}_FULFILLED`:
-            let tasks = state.tasksList.tasks.filter((task)=> task.id !== action.payload.data);
+            let tasks = state.tasksList.tasks.filter((task)=> task.id !== action.payload.data.id);
             return {...state,  tasksList: [...tasks, action.payload.data], 
                         updatedTask: {task:action.payload.data, error:null, loading: false}}
         case `${UPDATE_TASK}_FAILURE`:
