@@ -9,7 +9,7 @@ export const FETCH_PROJECT = 'FETCH_PROJECT';
 export function fetchProject(id) {
     return {
         type: FETCH_PROJECT,
-        payload: axios.get(`${WebAPI.FETCH_PROJECT}${id}`)
+        payload: axios.get(`${WebAPI.FETCH_PROJECT}/${id}`)
     }
 }
 
