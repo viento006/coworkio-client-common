@@ -19,7 +19,7 @@ const profileReducer = (state = INITIAL_STATE, action) => {
         case FETCH_PROFILE:
             return { ...state, activeProfile:{ ...state.activeProfile, loading: true }};
         case `${FETCH_PROFILE}_FULFILLED`:
-            return { ...state, activeProfile: { profile: action.payload.data, error:null, loading: false }};
+            return { ...state, activeProfile: { profile: action.payload.data, error:null, loading: false }, newProfile: INITIAL_STATE.newProfile};
         case `${FETCH_PROFILE}_FAILURE`:
             error = action.payload.data || { message: action.payload.message };
             return { ...state, activeProfile: {profile: null, error:error, loading:false }};
