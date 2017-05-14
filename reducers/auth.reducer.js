@@ -9,11 +9,18 @@ const INITIAL_STATE = {
 const auth = (state = INITIAL_STATE, action) => {
 
     switch( action.type ){
-
+        case  `${Actions.LOGOUT_USER}`:
+            return Object.assign({}, state, {
+                isPending: false,
+                status: '',
+                token: undefined
+            });
         case  `${Actions.LOGIN_USER}_PENDING`:
             return Object.assign({}, state, {
                 isPending: true,
-                status: ''
+                status: null,
+                error: null,
+                token: null
             });
 
         case `${Actions.LOGIN_USER}_FULFILLED`:
