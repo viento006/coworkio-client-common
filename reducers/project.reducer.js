@@ -1,7 +1,8 @@
-import { FETCH_PROJECTS, FETCH_PROJECT, CREATE_PROJECT } from '../actions/project.actions';
+import { FETCH_PROJECTS, FETCH_PROJECT, CREATE_PROJECT, FIND_PROJECT } from '../actions/project.actions';
 
 const INITIAL_STATE = { 
-    projectsList: {projects: [], error:null, loading: false},  
+    projectsList: {projects: [], error:null, loading: false},
+    foundProjects: {projects: [], error:null, loading: false},
     newProject:{projectID:null, error: null, loading: false},
     activeProject:{project:null, error:null, loading: false}, 
 };
@@ -31,6 +32,14 @@ const projectReducer = (state = INITIAL_STATE, action) => {
         case `${CREATE_PROJECT}_FAILURE`:
             error = action.payload.data || {message: action.payload.message};
             return {...state, newProject: {projectID:null, error:error, loading: false}}
+
+        case `${FIND_PROJECT}_PENDING`:
+            return {...state, foundProjects: {...state.foundProjects, loading: true, error:null}}
+        case `${FIND_PROJECT}_FULFILLED`:
+            return {...state, foundProjects: {projects:action.payload.data, error:null, loading: false}}
+        case `${FIND_PROJECT}_REJECTED`:
+            error = action.payload.data || {message: action.payload.message};
+            return {...state, foundProjects: {projects:[], error:error, loading: false}}
 
         default:
             return state;

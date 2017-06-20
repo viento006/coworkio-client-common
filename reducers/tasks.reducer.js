@@ -3,6 +3,7 @@ import { FETCH_TASKS, FETCH_TASK, ADD_TASK, UPDATE_TASK } from '../actions/task.
 const INITIAL_STATE = { 
     tasksList: {tasks: [], error:null, loading: false},
     newTask:{task:null, error: null, loading: false},
+    updatedTask:{task:null, error: null, loading: false},
     activeTask:{task:null, error:null, loading: false}
 };
 
