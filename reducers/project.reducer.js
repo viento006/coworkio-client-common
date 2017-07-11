@@ -9,27 +9,27 @@ const INITIAL_STATE = {
 
 const projectReducer = (state = INITIAL_STATE, action) => {
     switch( action.type ){
-        case FETCH_PROJECTS:
+        case `${FETCH_PROJECTS}_PENDING`:
   	        return { ...state, projectsList: { projects:[], error: null, loading: true } }; 
         case `${FETCH_PROJECTS}_FULFILLED`:
             return { ...state, projectsList: {projects: action.payload.data, error:null, loading: false} };
-        case `${FETCH_PROJECTS}_FAILURE`:
+        case `${FETCH_PROJECTS}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return { ...state, projectsList: {projects: [], error: error, loading: false} };
 
-        case FETCH_PROJECT:
+        case `${FETCH_PROJECT}_PENDING`:
             return { ...state, activeProject:{...state.activeProject, loading: true}};
         case `${FETCH_PROJECT}_FULFILLED`:
             return { ...state, activeProject: {project: action.payload.data, error:null, loading: false}};
-        case `${FETCH_PROJECT}_FAILURE`:
+        case `${FETCH_PROJECT}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return { ...state, activeProject: {project: null, error:error, loading:false}};
 
-        case CREATE_PROJECT:
+        case `${CREATE_PROJECT}_PENDING`:
             return {...state, newProject: {...state.newProject, loading: true}}
         case `${CREATE_PROJECT}_FULFILLED`:
             return {...state, newProject: {projectID:action.payload.data, error:null, loading: false}}
-        case `${CREATE_PROJECT}_FAILURE`:
+        case `${CREATE_PROJECT}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return {...state, newProject: {projectID:null, error:error, loading: false}}
 

@@ -14,24 +14,10 @@ export function fetchProject(id) {
     }
 }
 
-export function fetchProjectSuccess(project) {
-    return {
-        type: `${FETCH_PROJECT}_FULFILLED`,
-        payload: project
-    };
-}
-
 export function createProject(props) {
     return {
         type: CREATE_PROJECT,
         payload: axios.post(WebAPI.CREATE_PROJECT, props)
-    };
-}
-
-export function createPostSuccess(newProject) {
-    return {
-        type: `${CREATE_PROJECT}_SUCCESS`,
-        payload: newProject
     };
 }
 

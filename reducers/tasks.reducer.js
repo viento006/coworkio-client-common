@@ -13,7 +13,7 @@ const taskReducer = (state = INITIAL_STATE, action) => {
   	        return { ...state, tasksList: { tasks:[], error: null, loading: true } }; 
         case `${FETCH_TASKS}_FULFILLED`:
             return { ...state, tasksList: {tasks: action.payload.data, error:null, loading: false} };
-        case `${FETCH_TASKS}_FAILURE`:
+        case `${FETCH_TASKS}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return { ...state, tasksList: {tasks: [], error: error, loading: false} };
  
@@ -21,7 +21,7 @@ const taskReducer = (state = INITIAL_STATE, action) => {
             return { ...state, activeTask:{...state.activeTask, loading: true}};
         case `${FETCH_TASK}_FULFILLED`:
             return { ...state, activeTask: {task: action.payload.data, error:null, loading: false}};
-        case `${FETCH_TASK}_FAILURE`:
+        case `${FETCH_TASK}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return { ...state, activeTask: {task: null, error:error, loading:false}};
 
@@ -29,16 +29,16 @@ const taskReducer = (state = INITIAL_STATE, action) => {
             return {...state, newTask: {...state.newTask, loading: true}}
         case `${ADD_TASK}_FULFILLED`:
             return {...state, newTask: {task:action.payload.data, error:null, loading: false}}
-        case `${ADD_TASK}_FAILURE`:
+        case `${ADD_TASK}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return {...state, newTask: {task:null, error:error, loading: false}}
 
-        case `${UPDATE_TASK}`:
+        case `${UPDATE_TASK}_PENDING`:
             return {...state, updatedTask: {task: action.payload.data, loading: true}}
         case `${UPDATE_TASK}_FULFILLED`:
             let tasks = state.tasksList.tasks.filter((task)=> task.id !== action.payload.data.id);
             return {...state, updatedTask: {task:action.payload.data, error:null, loading: false}}
-        case `${UPDATE_TASK}_FAILURE`:
+        case `${UPDATE_TASK}_REJECTED`:
             error = action.payload.data || {message: action.payload.message};
             return {...state, updatedTask: {task:null, error:error, loading: false}}
 

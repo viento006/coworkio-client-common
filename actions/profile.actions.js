@@ -20,23 +20,9 @@ export function fetchProfile(id) {
     }
 }
 
-export function fetchProfileSuccess(profile) {
-    return {
-        type: `${FETCH_PROFILE}_FULFILLED`,
-        payload: profile
-    };
-}
-
 export function upsertProfile(props) {
     return {
         type: UPSERT_PROFILE,
         payload: axios.post(WebAPI.UPSERT_USER_PROFILE, props)
-    };
-}
-
-export function upsertProfileSuccess(newProfile) {
-    return {
-        type: `${UPSERT_PROFILE}_SUCCESS`,
-        payload: newProfile
     };
 }
